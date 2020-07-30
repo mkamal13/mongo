@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Mongo.Contact">
+    <ContentPage.Content>
+        <StackLayout x:Name="contactstack" Orientation="Vertical" >
+            <StackLayout Orientation="Horizontal" >
+                <Button Text="cancel" HorizontalOptions="Start" Command="{Binding BackCommand}">
+
+                </Button>
+                <Button Text="delete" HorizontalOptions="EndAndExpand" Command="{Binding DelCommand}">
+                      
+                </Button>
+                <Button Text="save" Clicked="SaveButton_Clicked"  Command="{Binding SaveCommand}" HorizontalOptions="EndAndExpand">
+                      
+                </Button>
+            </StackLayout>
+        <Entry Placeholder="enter name" x:Name="NameEntry" Text="{Binding Name}">
+         </Entry>
+            <Entry Placeholder="nick name" Text="{Binding NickName}">
+         </Entry>
+            <Entry Placeholder="address" Text="{Binding Address}">
+         </Entry>
+            <Entry Placeholder="company" Text="{Binding Company}">
+         </Entry>
+            <!--<Entry Placeholder="email">
+                
+         </Entry>
+            <Entry  Placeholder="phone">
+         </Entry>-->
+            <Button Text="+ email" Clicked="AddEmail_Clicked"></Button>
+            <Button Text="+ phone" Clicked="AddPhone_Clicked"></Button>
+            <ListView HasUnevenRows="True" ItemsSource="{Binding selectedEmail}"  SeparatorVisibility="None" x:Name="Emails">
+                <ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+                    <Entry Text="{Binding Email}" Placeholder="enter email">
+
+                    </Entry>
+                    </ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+            </ListView>
+             <ListView HasUnevenRows="True" ItemsSource="{Binding Phones}"  SeparatorVisibility="None" x:Name="PhonesList">
+                <ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+                    <Entry Text="{Binding Phone}" Placeholder="enter phone number">
+
+                    </Entry>
+                    </ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
